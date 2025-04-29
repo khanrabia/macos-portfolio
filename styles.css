@@ -7,7 +7,7 @@ body {
     overflow-x: hidden;
     background-repeat: no-repeat;
     position: relative;
-    cursor: url('assets/images/Lantern\ 1\ -\ Red\ Roof\ and\ Orange_012.png'), auto;
+    cursor: url('assets/images/cursor.cur'), auto;
   }
   
   html {
@@ -89,7 +89,6 @@ body {
     50% { transform: translateY(-20px); }
   }
   
-  /* Explore button */
   .explore-button {
     background-color: #fbbf24;
     color: white;
@@ -144,6 +143,14 @@ body {
     background: rgba(255, 255, 255, 0.05);
     margin-top: 3rem;
     border-radius: 1rem;
+    opacity: 0;
+    transform: translateY(40px);
+    transition: all 0.8s ease-out;
+  }
+  
+  .section.visible {
+    opacity: 1;
+    transform: translateY(0);
   }
   
   .section h2 {
@@ -152,21 +159,14 @@ body {
     color: #facc15;
   }
   
-  /* Reusable card grid */
-  .project-list,
-  .skills-list,
-  .certifications-list,
-  .experience-list {
+  .project-list {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     gap: 2rem;
   }
   
-  .project-card,
-  .skill-card,
-  .certification-card,
-  .experience-card {
+  .project-card {
     background: rgba(255, 255, 255, 0.1);
     padding: 1rem;
     border-radius: 0.75rem;
@@ -177,18 +177,108 @@ body {
     transition: transform 0.3s ease;
   }
   
-  .project-card:hover,
-  .skill-card:hover,
-  .certification-card:hover,
-  .experience-card:hover {
+  .project-card:hover {
     transform: scale(1.05);
   }
   
-  .project-card h3,
-  .skill-card h3,
-  .certification-card h3,
-  .experience-card h3 {
+  .project-card h3 {
     margin-top: 0;
     color: #facc15;
+  }
+  
+  /* Resume button */
+  .resume-button {
+    margin-top: 1rem;
+    display: inline-block;
+    background: #facc15;
+    color: #0f172a;
+    padding: 0.75rem 1.5rem;
+    border-radius: 1rem;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background 0.3s;
+  }
+  
+  .resume-button:hover {
+    background: #eab308;
+  }
+  
+  /* Social buttons */
+  .social-links {
+    margin-top: 1rem;
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+  }
+  
+  .social-links a {
+    color: white;
+    font-size: 1.5rem;
+    transition: color 0.3s;
+    position: relative;
+  }
+  
+  .social-links a:hover {
+    color: #facc15;
+  }
+  
+  .social-links a::after {
+    content: attr(aria-label);
+    position: absolute;
+    bottom: -1.5rem;
+    background: #1e293b;
+    color: #facc15;
+    padding: 0.25rem 0.5rem;
+    font-size: 0.75rem;
+    border-radius: 0.25rem;
+    white-space: nowrap;
+    opacity: 0;
+    transform: translateY(5px);
+    transition: opacity 0.3s, transform 0.3s;
+    pointer-events: none;
+  }
+  
+  .social-links a:hover::after {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  /* Footer */
+  footer {
+    text-align: center;
+    padding: 2rem;
+    font-size: 0.9rem;
+    color: #e2e8f0;
+  }
+  
+  /* Contact form */
+  .contact-form {
+    display: flex;
+    flex-direction: column;
+    max-width: 500px;
+    margin: 0 auto;
+    gap: 1rem;
+  }
+  
+  .contact-form input,
+  .contact-form textarea {
+    padding: 0.75rem;
+    border: none;
+    border-radius: 0.5rem;
+    font-size: 1rem;
+  }
+  
+  .contact-form button {
+    background-color: #fbbf24;
+    border: none;
+    padding: 0.75rem;
+    border-radius: 0.5rem;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+  }
+  
+  .contact-form button:hover {
+    background-color: #f59e0b;
   }
   
