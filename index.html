@@ -1,24 +1,77 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Portfolio</title>
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <header>
-        <h1>Welcome to My Portfolio</h1>
-    </header>
+  <div class="stars"></div>
 
-    <section>
-        <p>This is where I showcase my work.</p>
-    </section>
+  <header>
+    <div class="logo">My Portfolio</div>
+    <nav>
+      <a href="#hero">Home</a>
+      <a href="#about">About</a>
+      <a href="#projects">Projects</a>
+      <a href="#skills">Skills</a>
+      <a href="#certifications">Certifications</a>
+      <a href="#experience">Experience</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
 
-    <footer>
-        <p>Contact me at: myemail@example.com</p>
-    </footer>
+  <section class="hero" id="hero">
+    <h1>Welcome to<br>My Portfolio</h1>
+    <p>Discover my creative work and journey.</p>
+    <div class="lantern"></div>
+    <button class="explore-button" onclick="document.getElementById('about').scrollIntoView({ behavior: 'smooth' });">Explore</button>
+  </section>
 
-    <script src="script.js"></script>
+  <section id="about" class="section">
+    <h2>About Me</h2>
+    <p>I'm a passionate developer focused on creating beautiful and functional user experiences.</p>
+  </section>
+
+  <section id="projects" class="section">
+    <h2>Projects</h2>
+    <div class="project-list">
+      <div class="project-card">
+        <h3>Project One</h3>
+        <p>Description of project one.</p>
+      </div>
+      <div class="project-card">
+        <h3>Project Two</h3>
+        <p>Description of project two.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="skills" class="section">
+    <h2>Skills</h2>
+    <p>JavaScript, HTML, CSS, React, Git, UI/UX Design</p>
+  </section>
+
+  <section id="certifications" class="section">
+    <h2>Certifications</h2>
+    <p>Frontend Developer Certification - FreeCodeCamp</p>
+    <p>JavaScript Algorithms and Data Structures - Codecademy</p>
+  </section>
+
+  <section id="experience" class="section">
+    <h2>Experience</h2>
+    <p>Web Developer Intern at TechCorp - 2023</p>
+    <p>Freelance Frontend Developer - Ongoing</p>
+  </section>
+
+  <section id="contact" class="section">
+    <h2>Contact Me</h2>
+    <p>Email: yourname@example.com</p>
+    <p>LinkedIn: linkedin.com/in/yourprofile</p>
+  </section>
+
+  <script src="index.js"></script>
 </body>
 </html>
