@@ -4,14 +4,64 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="Rapunzel's Portfolio - Frontend Developer & Storybook Dreamer" />
-  <title>My Portfolio</title>
+
+  <title>Enchanted Portfolio of Rapunzel</title>
   <link rel="stylesheet" href="styles.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Playfair+Display:wght@600&display=swap" rel="stylesheet">
   <script defer src="index.js"></script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-D19FJ95K1C"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-D19FJ95K1C');
+  </script>
   <link rel="icon" href="assets/images/cursor.cur" type="image/x-icon">
   <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-Z+zXM03yAvqv6X2uPZcV4E8QWJQyecL+7NdRP9DsM+usQxCFkEjP7vX6tQKvq3lZxuXxZNYp0YZD5Xb4cg9sjg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+
 </head>
+<!-- Assurance Popup Modal -->
+<div id="assurance-popup" class="popup-modal hidden">
+  <div class="popup-modal-content">
+    <span class="popup-close-button" id="close-popup">&times;</span>
+    <h2>✨ A Note from Rabia ✨</h2>
+
+    <div class="popup-toggle-buttons">
+      <button id="popup-show-enchanted" class="active">Enchanted Version</button>
+      <button id="popup-show-formal">Formal Version</button>
+    </div>
+
+    <div id="popup-text-enchanted" class="popup-text">
+      <p>✨ While this enchanted portfolio weaves a tale, rest assured that behind the magic lies real-world experience, technical skill, and professional rigor. ✨</p>
+    </div>
+
+    <div id="popup-text-formal" class="popup-text hidden">
+      <p><strong>Note:</strong> This themed presentation reflects a creative approach, but all content and credentials are grounded in real professional experience and technical proficiency.</p>
+    </div>
+  </div>
+</div>
 <body>
   <div class="stars"></div>
+  <div class="fog-container">
+    <div class="fog fog1"></div>
+    <div class="fog fog2"></div>
+  </div>
+
+  <!-- Loading screen -->
+  <div class="loading" id="loading-screen">
+    <div class="loading-container">
+      <div class="loading-circle"></div>
+      <div class="loading-rune"></div>
+    </div>
+  </div>
+
+  <!-- Hover sparkle sound effect -->
+  <audio id="sparkle-hover" src="assets/sounds/sound-effect-twinklesparkle-115095.mp3" preload="auto"></audio>
+
   <header>
     <div class="logo">My Portfolio</div>
     <nav>
@@ -23,68 +73,146 @@
     </nav>
   </header>
 
+
   <section class="hero">
-    <h1>Hello, I'm Rapunzel</h1>
+    <h1>Hello, I'm Rabia Kahn</h1>
     <p>Frontend Developer & Storybook Dreamer</p>
     <div class="lantern"></div>
     <a href="#projects" class="explore-button">Explore My Work</a>
-    <a href="resume.pdf" class="resume-button" download>Download Resume</a>
+
+    <audio id="resume-download" src="assets/sounds/sparkle-loop-89472.mp3" preload="auto"></audio>
+    <a href="resume.pdf" class="resume-button" id="resume" download>Download Resume</a>
+
     <div class="social-links">
-      <a href="https://www.linkedin.com/in/yourprofile" aria-label="LinkedIn" target="_blank">
-        <i class="fab fa-linkedin"></i>
+      <a href="https://www.linkedin.com/in/rabia-l-khan/" target="_blank" aria-label="LinkedIn">
+        <i class="fab fa-linkedin fa-2x"></i>
       </a>
-      <a href="https://medium.com/@yourprofile" aria-label="Medium" target="_blank">
-        <i class="fab fa-medium"></i>
+      <a href="https://medium.com/@rab34" target="_blank" aria-label="Medium">
+        <i class="fab fa-medium fa-2x"></i>
       </a>
     </div>
+    
+    
   </section>
 
   <main>
-    <section class="section" id="projects">
-      <h2>Projects</h2>
-      <div class="project-list">
-        <div class="project-card">
-          <h3>Tower Tracker</h3>
-          <p>A magical way to keep tabs on your favorite stories.</p>
+    <!-- About section -->
+    <section id="about">
+      <div class="profile-container"></div>
+      <div class="ember-container">
+        <div class="oval-photo">
+          <img src="assets/images/IMG_2196.jpeg" alt="Your Portrait">
         </div>
-        <div class="project-card">
-          <h3>Lantern Viewer</h3>
-          <p>View floating lanterns from around the kingdom.</p>
+      </div>
+      <!-- Add this inside the #about section, right after the ember-container or wherever looks best -->
+<div class="bio-button-container">
+  <button id="toggle-bio" class="bio-open-button">View Bio</button>
+</div>
+
+      <div id="bio-modal" class="modal hidden">
+        <div class="modal-content">
+          <span class="close-button" id="close-bio">&times;</span>
+          <h2>✨ Meet Rabia ✨</h2>
+          
+          <!-- Toggle Buttons -->
+          <div class="bio-toggle-buttons">
+            <button id="show-professional" class="active">Professional Bio</button>
+            <button id="show-fantasy">Fantasy Bio</button>
+          </div>
+      
+          <!-- Professional Bio -->
+          <div id="bio-professional" class="bio-text">
+            <p>
+              Software Engineer transitioning into Product Management and Technical Project Management roles. Currently a Scrum Master at P1 Games and Digital Marketing Apprentice, combining technical expertise with leadership, agile methodology, and user-focused thinking. Proven ability to bridge communication between engineering and business, with a passion for delivering impactful products.
+            </p>
+          </div>
+      
+          <!-- Fantasy Bio -->
+          <div id="bio-fantasy" class="bio-text hidden">
+            <p>
+              Once a humble code-weaver from the realm of Logicaria, I now traverse the kingdoms of Product and Project, guiding quests with agility and runes of scrum. As lanterns of digital marketing glow at my side, I enchant workflows and rally guilds (teams) to launch visions into reality. Currently conjuring strategies with the guild of P1 Games.
+            </p>
+          </div>
+        </div>
+      </div>
+      <audio id="audio-swap" src="assets/sounds/magic-spell-333896.mp3" preload="auto"></audio>      
+    </section>
+
+    <!-- Projects -->
+    <section class="section" id="projects">
+      <button class="accordion-header">Projects</button>
+      <div class="accordion-content">
+        <div class="project-list">
+          <div class="project-card">
+            <button class="mini-accordion-header">Tower Tracker</button>
+            <div class="mini-accordion-content">
+              <p>A magical way to keep tabs on your favorite stories.</p>
+            </div>
+          </div>
+          <div class="project-card">
+            <button class="mini-accordion-header">Lantern Viewer</button>
+            <div class="mini-accordion-content">
+              <p>View floating lanterns from around the kingdom.</p>
+            </div>
+          </div>
         </div>
       </div>
     </section>
 
+    <!-- Skills -->
     <section class="section" id="skills">
-      <h2>Skills</h2>
-      <p>HTML, CSS, JavaScript, Tailwind CSS, React, Git</p>
+      <button class="accordion-header">Skills</button>
+      <div class="accordion-content">
+        <p>HTML, CSS, JavaScript, Tailwind CSS, React, Git</p>
+      </div>
     </section>
 
+    <!-- Certifications -->
     <section class="section" id="certifications">
-      <h2>Certifications</h2>
-      <ul>
-        <li>Frontend Developer Certificate - CodeCastle Academy</li>
-        <li>JavaScript Mastery - Enchanted Learning</li>
-      </ul>
+      <button class="accordion-header">Certifications</button>
+      <div class="accordion-content">
+        <ul>
+          <li>Frontend Developer Certificate - CodeCastle Academy</li>
+          <li>JavaScript Mastery - Enchanted Learning</li>
+        </ul>
+      </div>
     </section>
 
+    <!-- Experience -->
     <section class="section" id="experience">
-      <h2>Experience</h2>
-      <p>Freelance frontend developer - Kingdom Designs (2023-Present)</p>
+      <button class="accordion-header">Experience</button>
+      <div class="accordion-content">
+        <div class="experience-entry">
+          <button class="mini-accordion-header">Kingdom Designs (2023–Present)</button>
+          <div class="mini-accordion-content">
+            <p>Freelance Frontend Developer - Built story-inspired UIs using Tailwind and React.</p>
+          </div>
+        </div>
+      </div>
     </section>
 
-    <section class="section" id="contact">
+    <!-- Contact -->
+    <section id="contact" class="section">
       <h2>Contact Me</h2>
-      <form class="contact-form">
-        <input type="text" placeholder="Your Name" required />
-        <input type="email" placeholder="Your Email" required />
-        <textarea placeholder="Your Message" rows="5" required></textarea>
-        <button type="submit">Send</button>
-      </form>
+      <div class="form-wrapper">
+        <form class="contact-form" id="contact-form" action="https://formspree.io/f/xldbjrjj" method="POST">
+          <input type="text" name="name" placeholder="Your name" required>
+          <input type="email" name="_replyto" placeholder="Your email" required>
+          <textarea name="message" rows="5" placeholder="Your message..." required></textarea>
+          <audio id="sent-sound" src="assets/sounds/magic-spell-333896.mp3" preload="auto"></audio>
+          <button type="submit">Send Message</button>
+        </form>
+        <div class="thank-you-wrapper hidden" id="thank-you">
+          <div class="thank-you-box">
+            ✨ Thank you! Your message has been sent. ✨
+          </div>
+        </div>
+      </div>
     </section>
   </main>
 
   <footer>
-    <p>&copy; 2025. All rights reserved.</p>
+    <p>&copy; Created by Rabia Khan</p>
   </footer>
 </body>
 </html>
