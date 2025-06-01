@@ -37,7 +37,7 @@ document.addEventListener("DOMContentLoaded", () => {
     starContainer.appendChild(star);
   }
 
-  // 3. Smooth scroll + auto-open accordion
+//  / 3. Smooth scroll + auto-open accordion
   document.querySelectorAll('nav a, .explore-button').forEach(link => {
     link.addEventListener('click', e => {
       e.preventDefault();
@@ -69,7 +69,7 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   // 5. Initialize accordions
-  ["projects", "experience", "skills", "certifications"].forEach(setupAccordions);
+  ["projects", "experience", "skills", "certifications", "education", "volunteer"].forEach(setupAccordions);
 
   // 6. Contact form handling
 const contactForm = document.getElementById("contact-form");
@@ -328,3 +328,42 @@ window.addEventListener('load', () => {
   loadingScreen.classList.add('fade-out');
   setTimeout(() => loadingScreen.style.display = 'none', 1000);
 });
+
+
+const skillCards = document.querySelectorAll('.skill-category');
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+      observer.unobserve(entry.target);
+    }
+  });
+}, {
+    threshold: 0.1
+  });
+
+  skillCards.forEach(card => {
+    observer.observe(card);
+  });
+
+
+  document.querySelectorAll('.mini-accordion-header').forEach(header => {
+    header.addEventListener('click', () => {
+      const content = header.nextElementSibling;
+      const isOpen = content.style.display === 'block';
+  
+      // Close all mini accordions in the same timeline
+      header.closest('.timeline-horizontal').querySelectorAll('.mini-accordion-content').forEach(c => {
+        c.style.display = 'flex';
+      });
+      header.closest('.timeline-horizontal').querySelectorAll('.mini-accordion-header').forEach(h => {
+        h.classList.remove('active');
+      });
+  
+      if (!isOpen) {
+        content.style.display = 'block';
+        header.classList.add('active');
+      }
+    });
+  });
+  

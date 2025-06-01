@@ -70,6 +70,17 @@ nav a {
   color: var(--text-light);
 }
 
+p {
+  font-family: 'Playfair Display', serif;
+  font-size: 16px;
+  text-align: start;
+}
+
+button{
+  font-family: 'Playfair Display', serif;
+  font-size: 1.25rem;
+}
+
 /* Lantern */
 .lantern {
   margin: 3rem auto;
@@ -1038,4 +1049,254 @@ button:focus,
 .social-links a:hover {
   color: #ffd700; /* golden sparkle on hover */
 }
+.section {
+  padding: 4rem 2rem;
+  text-align: center;
+  background: #0f0f0f;
+  color: #fff;
+}
 
+.section-title {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  font-family: 'Cinzel', serif; /* Optional fantasy font */
+}
+
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.glow-card {
+  border: 3px solid #fff;
+  padding: 1rem;
+  border-radius: 15px;
+  background-color: rgba(255, 255, 255, 0.05);
+  box-shadow: 0 0 20px rgba(255, 255, 100, 0.3);
+  transition: transform 0.3s ease;
+}
+
+.glow-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 0 30px rgba(255, 255, 150, 0.6);
+}
+
+.glow-button {
+  background-color: #1a1f3c;
+  color: #ffeb3b;
+  font-weight: bold;
+  padding: 1rem 2rem;
+  border: none;
+  border-radius: 10px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  width: 100%;
+}
+
+.glow-button:hover {
+  background-color: #2a2f4c;
+}
+
+.skills-card {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 1rem;
+  border-radius: 0.75rem;
+  width: min(90%, 250px);
+  text-align: left;
+  color: white;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease;
+}
+.skills-card {
+  background: rgba(255, 248, 220, 0.1);
+  border: 2px solid #ffdf7f;
+  border-radius: 14px;
+  padding: 1.2rem;
+  box-shadow: 0 0 12px #ffc94d, 0 0 20px rgba(255, 200, 100, 0.3);
+  transition: box-shadow 0.3s ease, transform 0.2s ease;
+}
+
+.skills-card:hover {
+  box-shadow: 0 0 18px #ffe07d, 0 0 24px #ffc94d;
+  transform: translateY(-4px);
+}
+
+
+.skills-card:hover {
+  transform: scale(1.05);
+}
+
+.skills-card h4 {
+  margin-top: 0;
+  color: var(--gold);
+}
+
+.skills-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.skills-scroll-vertical {
+  /* max-height: 200px; */
+  overflow-y: auto;
+  padding-right: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.skills-scroll-vertical::-webkit-scrollbar {
+  width: 8px;
+}
+.skills-scroll-vertical::-webkit-scrollbar-thumb {
+  background: var(--gold);
+  border-radius: 10px;
+}
+.skill-accordion-content{
+  display: flex;
+  margin: 21px;
+}
+
+
+.timeline-horizontal {
+  display: flex;
+  overflow-x: auto;
+  gap: 2rem;
+  padding: 2rem 1rem;
+  position: relative;
+  scrollbar-width: none; /* Firefox */
+}
+.timeline-horizontal::-webkit-scrollbar {
+  display: none; /* Chrome, Safari */
+}
+
+.timeline-item {
+  flex: 0 0 auto;
+  width: 250px;
+  position: relative;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+  padding: 1rem;
+  border-top: 3px solid #f1c40f;
+  box-shadow: 0 0 10px rgba(241, 196, 15, 0.3);
+}
+
+.timeline-date {
+  font-weight: bold;
+  font-size: 1.2rem;
+  color: #e0d4b7;
+  font-family: 'Cinzel', serif; /* Optional fantasy font */
+  text-align: center;
+  margin-bottom: 0.5rem;
+}
+
+.timeline-content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.mini-accordion-header {
+  background: none;
+  border: none;
+  color: #f1c40f;
+  font-weight: bold;
+  cursor: pointer;
+  text-align: left;
+  width: 100%;
+}
+
+.mini-accordion-content {
+  display: none;
+  margin-top: 0.5rem;
+  color: #fff;
+}
+
+.mini-accordion-header.active + .mini-accordion-content {
+  display: block;
+}
+
+.timeline-horizontal-experience {
+  display: inline-flex; /* Use flex instead of inline-flex for better block behavior */
+  overflow-x: auto;
+  padding: 3rem 2rem;
+  gap: 3rem;
+  scroll-snap-type: x mandatory;
+  border-top: 2px solid #f1c40f;
+  position: relative;
+  width: 100%; /* Responsive width */
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+.timeline-horizontal-experience .timeline-item {
+  min-width: 300px; /* ensures scrollable cards */
+  flex-shrink: 0;
+  scroll-snap-align: start;
+  border-left: 2px solid #f1c40f;
+  padding-left: 1rem;
+  position: relative;
+}
+
+.timeline-item-experience {
+  min-width: 300px;
+  flex-shrink: 0;
+  scroll-snap-align: start;
+  border-left: 2px solid #f1c40f;
+  padding-left: 1rem;
+  position: relative;
+}
+
+.timeline-item-experience::before {
+  content: "🕯️"; /* Replace with your preferred fantasy symbol */
+  position: absolute;
+  left: -1.4rem;
+  top: 0;
+  background: #111;
+  border-radius: 50%;
+  padding: 0.3rem;
+  box-shadow: 0 0 5px #f1c40f;
+  font-size: 1.2rem;
+}
+
+.timeline-content-experience h3 {
+  margin: 0.5rem 0;
+  font-size: 1.2rem;
+  color: #f1f1f1;
+}
+
+.timeline-content-experience .date {
+  font-size: 0.9rem;
+  color: #ccc7ae;
+  margin-bottom: 0.5rem;
+  display: block;
+}
+
+.timeline-content-experience ul {
+  padding-left: 1rem;
+  color: #dcdcdc;
+  font-size: 0.95rem;
+  list-style-type: disc;
+}
+
+.section::-webkit-scrollbar,
+.timeline-horizontal-experience::-webkit-scrollbar {
+  height: 8px;
+}
+.timeline-horizontal-experience::-webkit-scrollbar-thumb {
+  background: #f1c40f;
+  border-radius: 4px;
+}
+.timeline-horizontal-experience .timeline-item:first-child {
+  margin-left: 0;
+}
+
+ul, li{
+  font-family: 'Playfair Display', serif;
+  font-size: 12px;
+  text-align: justify;
+}
